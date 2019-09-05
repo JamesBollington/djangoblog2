@@ -1,0 +1,50 @@
+{% extends "base.html"%}
+
+{% block content %}
+
+<h3>
+    {{post.Title}}
+</h3>
+<div class="row bg-light">
+<p>
+    {{post.Date}}
+</p>
+</div>
+<div class="row">
+<p>
+    {{post.Body}}
+</p>
+</div>
+<div class="row">
+    <p>
+        <strong>Categories:</strong></p>
+            <ul class="list-inline">
+                {% for category in categories %}
+                <li class="list-inline-item bg-white ">
+                    <a href="http://127.0.0.1:8000/blog/categories/{{category.slug}}">
+                    {{category.Category_name}}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+</div>
+<div class="row">
+    <p>
+        <strong>Leave a comment:</strong></p>
+            <form action="{{post.slug}}" method="post">
+                {% csrf_token %}
+                {{form}}
+                <br>
+                <input type="submit" value="submit">
+            </form>
+</div>
+
+    {% for comment in comments %}
+<div class="row">
+    <p>Name: {{comment.Name}}</p>
+</div>
+<div class="row">
+    <p>{{comment.Comment}}</p>
+</div>
+{% endfor %}
+{% endblock %}

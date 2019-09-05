@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Djangoblog</title>
+</head>
+{% load staticfiles %}
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet" media="screen">
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<div class="container">
+    <a class="navbar-brand" href="http://127.0.0.1:8000/blog/index">Djangoblog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#togglenav" aria-controls="togglenav" aria-expanded="false" aria-label="toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="togglenav">
+        <div class="navbar-nav" >
+            <a class="nav-item nav-link" href="#">About</a>
+            <a class="nav-item nav-link" href="http://127.0.0.1:8000/blog/index">Posts</a>
+            <a class="nav-item nav-link" href="http://127.0.0.1:8000/blog/categories">Categories</a>
+        </div>
+    </div>
+</div>
+</nav>
+<div class="container">
+    {% block content %}
+{% endblock %}
+
+<script src="{% static 'bootstrap/js/jquery.slim.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/popper.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+<footer>
+    <a href="http://127.0.0.1:8000/blog/categories">Category list</a></br>
+</footer>
+</div>
+
+</html>

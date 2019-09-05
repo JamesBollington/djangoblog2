@@ -1,0 +1,17 @@
+{% extends "base.html"%}
+
+{% block content %}
+<h3>Categories</h3>
+
+{% for category in categories %}
+<ul>
+    <li>
+    <a href="categories/{{category.slug}}">
+
+        {{category.Category_name}}
+    </a>
+    </li>
+</ul>
+{% endfor %}
+
+{% endblock %}}

@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+
+{% block content %}
+
+    <h3>Showing all posts tagged:
+    {{category.Category_name}}
+    </h3>
+<ul>
+    {% for post in posts %}
+<li><a href="../{{post.slug}}">
+    {{post.Title}}
+</li></a>
+{% endfor %}
+</ul>
+{% endblock %}
